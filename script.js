@@ -24,7 +24,7 @@ generatorButton.addEventListener('click', async () => {
 
     // Check if frontend died + main logic
     try {
-        const response = await fetch("/api/schedule/", {
+        const response = await fetch("http://127.0.0.1:8000/api/schedule/", {
             method: "POST",
             headers: {
 

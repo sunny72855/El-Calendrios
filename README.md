@@ -98,3 +98,7 @@ Drop `--reload` for a non-dev run.
 - [ ] Persistent storage for saved schedules
 - [ ] Auth for multi-user support
 - [ ] Additional LLM provider support
+
+## Note
+
+Add http://127.0.0.1:8000/ to the start of api/schedule in script.js if you are hosting backend and frontend seperately
