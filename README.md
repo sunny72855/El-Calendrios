@@ -1,67 +1,106 @@
 # 📅 AI Dynamic Schedule Engine
 
-A lightweight, automated calendar manager built with a **FastAPI** backend and a responsive vanilla JavaScript grid frontend. The engine dynamically evaluates user availability, respects hard-coded user constraints, and optimizes daily schedules based on selectable focus frameworks and intensity styles.
+An automated calendar manager with a **FastAPI** backend and a responsive vanilla JavaScript grid frontend. The engine evaluates user availability, respects hard-coded constraints, and optimizes daily schedules based on selectable focus frameworks and intensity styles.
 
 ---
 
-## 🚀 System Architecture & Directory Layout
+## ✨ Features
 
-The codebase uses a clean, decoupled structure separating the core backend endpoints from the static client frontend:
+- **Dynamic Block Generation** — processes raw user requirements through an LLM orchestration layer
+- **Fixed Task Reservation** — map static weekly commitments (school hours, practices, etc.) directly into client state
+- **Deterministic Time Sorting** — in-place Timsort keeps calendar cards chronologically aligned on insertion
+- **Modular Codebase** — clean separation between API validation schemas and core processing logic
 
+---
+
+## 🏗️ Architecture
+
+```
 ├── api/
-│   ├── index.py             # Main FastAPI entry point & API Router
-│   └── backend/             # Core backend logic container
+│   ├── index.py               # FastAPI entry point & API router
+│   └── backend/
 │       ├── engines/
-│       │   └── llm_engine.py # Generation logic
+│       │   └── llm_engine.py  # Generation logic
 │       └── schemas/
 │           ├── calendar_schema.py
 │           └── payload_schema.py
-├── index.html               # Main frontend interface
-├── script.js                # State management, time sorting, & API communications
-├── style.css                # Interface layout & styling
-├── requirements.txt         # Python platform dependency manifest
+├── index.html                 # Frontend interface
+├── script.js                  # State management, time sorting, API calls
+├── style.css                  # Layout & styling
+├── requirements.txt           # Python dependencies
 └── README.md
+```
 
-# 🛠️ Features
-Dynamic Block Generation: Automatically processes raw user requirements via an LLM orchestration layer.
+---
 
-Fixed Task Reservation: Enables users to manually map static weekly commitments (e.g., school hours, practices) directly into the client state.
+## 🔧 Getting Started
 
-Deterministic Time Sorting: Utilizes an in-place Timsort configuration to chronologically align calendar cards instantly upon insertion.
+### Prerequisites
 
-Modular Codebase: Clean separation of concerns between API data validation schemas and core processing routines.
+- Python 3.9+
+- Git
+- A modern web browser
 
-### 🔧 Local Development & Setup
-Prerequisites
+### 1. Clone the repository
 
-Python 3.9+
-Git
-A modern web browser
-
-1. Clone & Navigate
-
-git clone [https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git](https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git)
+```bash
+git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
 cd AI-Schedule-Engine
+```
 
-2. Configure the Backend Microservice
-Set up your Python virtual environment and pull down the strict dependencies:
+### 2. Set up the backend
 
-Initialize and activate virtual environment
+```bash
+# Create and activate a virtual environment
 python -m venv venv
-source venv/bin/activate  # On Windows use: venv\Scripts\activate
+source venv/bin/activate      # Windows: venv\Scripts\activate
 
-Install package definitions
+# Install dependencies
 pip install -r requirements.txt
+```
 
-3. Environment Variables
-Create a .env file inside the root directory to store your credentials:
+### 3. Configure environment variables
 
-Code snippet
+Create a `.env` file in the project root:
+
+```env
 GEMINI_API_KEY=your_api_key_here
-Don't change the name to anything but GEMINI_API_KEY otherwise the LLM will not work (learnt this the hard way)
+```
 
-4. Run the Local Servers
-To spin up the local Uvicorn development server:
+> ⚠️ The variable **must** be named `GEMINI_API_KEY` — anything else and the LLM engine won't pick it up.
 
-uvicorn api.index:app --reload (remove the --reload if you just want to experience it)
-The API documentation will be interactively available at http://127.0.0.1:8000/docs. Open index.html directly in your browser or run it via a local live server extension to interface with the platform.
+### 4. Run the app
+
+```bash
+uvicorn api.index:app --reload
+```
+
+Drop `--reload` for a non-dev run.
+
+- API docs: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+- Frontend: open `index.html` directly, or serve it with a live-server extension
+
+---
+
+## 🧱 Tech Stack
+
+| Layer      | Tech                          |
+|------------|--------------------------------|
+| Backend    | FastAPI, Python 3.9+           |
+| Frontend   | Vanilla JS, HTML, CSS          |
+| LLM Engine | Gemini API                     |
+| Server     | Uvicorn                        |
+
+---
+
+## 🗺️ Roadmap
+
+- [ ] Persistent storage for saved schedules
+- [ ] Auth for multi-user support
+- [ ] Additional LLM provider support
+
+---
+
+## 📄 License
+
+Add your license of choice here (MIT is a solid default for personal projects).
