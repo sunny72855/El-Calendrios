@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>El Calendarios</title>
+</head>
+
+<body>
+    <section id="settings">
+        <div class="settings-grid">
+            <div id="generator" class="panel">
+                <h2>Schedule Generator</h2>
+
+                <div class="field">
+                    <label for="rawText">Raw Context / Requirements:</label>
+                    <textarea id="rawText" placeholder="e.g., Study physics for 2 hours, review math for 45 mins..."></textarea>
+                </div>
+
+                <div class="field">
+                    <label for="intensity">Choose your intensity:</label>
+                    <select name="intensity" id="intensity">
+                        <option value="cram">Cram (Back-to-back, dense packing)</option>
+                        <option value="chill">Chill (15-30m buffers, daytime only)</option>
+                        <option value="deep-work">Deep Work (90-120m long chunks)</option>
+                        <option value="pomodoro">Pomodoro (25m sprints + 5m breaks)</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="focus">Choose your focus style:</label>
+                    <select name="focus" id="focus">
+                        <option value="academic">Academic (Study & Review framing)</option>
+                        <option value="creative">Creative (Ideation & Flow framing)</option>
+                        <option value="career">Career (Professional & Milestone framing)</option>
+                        <option value="casual">Casual (Lightweight & Conversational)</option>
+                    </select>
+                </div>
+
+                <button type="button" id="generate-btn" class="primary-btn">Generate Schedule</button>
+            </div>
+
+            <div id="task-adder" class="panel">
+                <h2>Add Fixed Task</h2>
+
+                <div class="field">
+                    <label for="fixedDay">Select Day:</label>
+                    <select id="fixedDay">
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                        <option value="Sunday">Sunday</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="fixedTitle">Task Name:</label>
+                    <input type="text" id="fixedTitle" placeholder="e.g., School Classes, Volleyball Practice">
+                </div>
+
+                <div class="form-row">
+                    <div class="field">
+                        <label for="fixedStart">Start Time:</label>
+                        <input type="time" id="fixedStart">
+                    </div>
+                    <div class="field">
+                        <label for="fixedEnd">End Time:</label>
+                        <input type="time" id="fixedEnd">
+                    </div>
+                </div>
+
+                <button type="button" id="add-task-btn" class="secondary-btn">Add to Schedule</button>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="calendar">
+        <h2>Weekly Block Grid</h2>
+
+        <div id="Monday" class="day-column">
+            <h3>Monday</h3>
+            <div class="task-list">
+            </div>
+        </div>
+
+        <div id="Tuesday" class="day-column">
+            <h3>Tuesday</h3>
+            <div class="task-list"></div>
+        </div>
+
+        <div id="Wednesday" class="day-column">
+            <h3>Wednesday</h3>
+            <div class="task-list"></div>
+        </div>
+
+        <div id="Thursday" class="day-column">
+            <h3>Thursday</h3>
+            <div class="task-list"></div>
+        </div>
+
+        <div id="Friday" class="day-column">
+            <h3>Friday</h3>
+            <div class="task-list"></div>
+        </div>
+
+        <div id="Saturday" class="day-column">
+            <h3>Saturday</h3>
+            <div class="task-list"></div>
+        </div>
+
+        <div id="Sunday" class="day-column">
+            <h3>Sunday</h3>
+            <div class="task-list"></div>
+        </div>
+    </section>
+</body>
+
+</html>
