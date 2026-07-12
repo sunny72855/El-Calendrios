@@ -98,9 +98,3 @@ Drop `--reload` for a non-dev run.
 - [ ] Persistent storage for saved schedules
 - [ ] Auth for multi-user support
 - [ ] Additional LLM provider support
-
----
-
-## 📄 License
-
-Add your license of choice here (MIT is a solid default for personal projects).
