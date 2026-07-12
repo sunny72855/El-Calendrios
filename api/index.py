@@ -8,6 +8,7 @@ app = FastAPI()
 origins = [
     "http://localhost:5500",      # Default VS Code Live Server port
     "http://127.0.0.1:5500",      # Alternate Live Server loopback
+    "https://el-calendrios.vercel.app"
 ]
 
 app.add_middleware(
@@ -18,7 +19,7 @@ app.add_middleware(
     allow_headers=["*"],              # Allows all headers (like Content-Type)
 )
 
-@app.post('/schedule/')
+@app.post('/api/schedule/')
 async def process_calendar(calendar: UserPayload):
     try:
         response = await generate_schedule(
